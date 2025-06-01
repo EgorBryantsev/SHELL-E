@@ -47,3 +47,7 @@ Then source or add to bashrc:
 ```bash
 source ~/ros2_ws/install/setup.bash
 ```
+
+---
+not finished, urdf still needed
+---
