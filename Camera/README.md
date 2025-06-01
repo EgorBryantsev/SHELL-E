@@ -39,7 +39,7 @@ apt source ros-foxy-turtlebot3-description
 cd src
 ros2 pkg create --build-type ament_python camera_subscriber --dependencies rclpy sensor_msgs cv_bridge
 ```
-Add `setup.py` and `camera_viewer_node.py` (from repo), then:
+Add `~/ros2_ws/src/camera_subscriber/setup.py` and `~/ros2_ws/src/camera_subscriber/camera_subscriber/camera_viewer_node.py` (from repo), then:
 ```bash
 colcon build --packages-select turtlebot3_description camera_subscriber 
 ```
