@@ -17,9 +17,10 @@ You can also test video output with (using qv4l2):
 qv4l2
 ```
 ### ROS 2 setup
-Source the foxy env:
+Sources:
 ```bash
 source /opt/ros/foxy/setup.bash
+export TURTLEBOT3_MODEL=burger
 ```
 And run the camera node:
 ```bash
@@ -41,4 +42,8 @@ ros2 pkg create --build-type ament_python camera_subscriber --dependencies rclpy
 Add `setup.py` and `camera_viewer_node.py` (from repo), then:
 ```bash
 colcon build --packages-select turtlebot3_description camera_subscriber 
+```
+Then source or add to bashrc:
+```bash
+source ~/ros2_ws/install/setup.bash
 ```
