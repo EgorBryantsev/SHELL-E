@@ -28,9 +28,13 @@ ros2 run v4l2_camera v4l2_camera_node # --ros-args -p video_device:="/dev/videoX
 ```
 There should be a camera topic inn `ros2 list topics`. The camera output through ros can be viewed with `rqt`.
 ### python subscriber
-In `ros2.list` add:
+In `/etc/apt/sources.list.d/ros2.list` add:
 ```
 deb-src [arch=amd64 signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu focal main
+```
+Then update repos:
+```bash
+sudo apt update
 ```
 Set up the ros2 folder:
 ```
