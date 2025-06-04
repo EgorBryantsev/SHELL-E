@@ -9,6 +9,8 @@ class LidarListener(Node):
     def __init__(self):
         super().__init__('lidar_listener')
         self.get_logger().info("Lidar Listener Node Started!")
+        
+        # Subscribe to the /scan topic from the LiDAR
         self.subscription = self.create_subscription(
             LaserScan,
             '/scan',
