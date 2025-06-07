@@ -22,6 +22,8 @@ class LidarListener(Node):
             '/scan',
             self.listener_callback,
             qos_profile_sensor_data)
+        
+        self.cluster_pub = self.create_publisher(PointCloud2, 'cluster_points', 10)
 
     def listener_callback(self, msg):
         print("Callback triggered!")
