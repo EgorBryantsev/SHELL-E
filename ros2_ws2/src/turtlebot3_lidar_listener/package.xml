@@ -1,1 +1,55 @@
 # should appear during colcon build
+
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+
+<package format="3">
+  <name>turtlebot3_lidar_listener</name>
+  <version>0.0.0</version>
+  <description>Custom LiDAR listener and obstacle avoidance for TurtleBot3</description>
+  <maintainer email="ubuntuhost@todo.todo">ubuntuhost</maintainer>
+  <license>Apache-2.0?</license>
+
+  <!-- Build dependencies -->
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies for Python nodes and launch files -->
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>nav_msgs</depend> <!-- Added for potential /odom usage, good practice for robot control -->
+
+  <!-- Python package dependencies (installed via pip, but listed here for context/build tools) -->
+  <!-- Often these are handled by install_requires in setup.py, but listing here for clarity. -->
+  <depend>python3-numpy</depend>
+  <depend>python3-scikit-learn</depend> 
+
+  <!-- Dependencies for the launch files you copied and are now launching from this package -->
+  
+  <!-- Even though we copied the launch files, the nodes they launch still belong to these packages -->
+  <exec_depend>turtlebot3_bringup</exec_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+  <exec_depend>hls_lfcd_lds_driver</exec_depend> <!-- Or ld08_driver if use LDS-02 -->
+  <exec_depend>ld08_driver</exec_depend> <!-- Include both for completeness if the launch file has a choice -->
+  <exec_depend>turtlebot3_node</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+
+  <!-- In case my_navigation2.launch.py is implemented-->
+  <exec_depend>rviz2</exec_depend> <!-- For my_navigation2.launch.py if launch RViz -->
+  <exec_depend>nav2_bringup</exec_depend> <!-- If integrate my_navigation2.launch.py -->
+
+
+  <!-- Test dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+  <test_depend>python3-pytest</test_depend>
+  <test_depend>ament_pep257</test_depend>
+  <test_depend>ament_flake8<test_depend>
+  <test_depend>ament_copyright</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
