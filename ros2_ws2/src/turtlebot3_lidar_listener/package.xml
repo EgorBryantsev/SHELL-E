@@ -8,7 +8,7 @@
   <version>0.0.0</version>
   <description>Custom LiDAR listener and obstacle avoidance for TurtleBot3</description>
   <maintainer email="ubuntuhost@todo.todo">ubuntuhost</maintainer>
-  <license>Apache-2.0?</license>
+  <license>Apache-2.0</license>
 
   <!-- Build dependencies -->
   <buildtool_depend>ament_cmake_python</buildtool_depend>

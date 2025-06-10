@@ -28,6 +28,10 @@ class LidarListener(Node):
         # Publisher for the closest detected obstacle distance
         self.closest_obstacle_distance_pub = self.create_publisher(Float32, 'closest_obstacle_distance', 10)
 
+        # NEW: Login counter
+        self.log_counter = 0
+        self.log_frequency = 10 # Log evry 10th message (adjust as needed)
+
     def listener_callback(self, msg):
         # print("Callback triggered!")
         # self.get_logger().info(f"Min distance: {min(msg.ranges):.2f} meters")
@@ -100,7 +104,12 @@ class LidarListener(Node):
             # Calculate distances for all clustered points from the origin (robot's center)
             distances = np.linalg.norm(np.array(all_cluster_points), axis=1)
             closest_obstacle_from_clusters = np.min(distances)
-            self.get_logger().info(f"Closest detected obstacle (clustered): {closest_obstacle_from_clusters:.2f} m")
+
+            # MODIFIED: Log periodically - every 10th message
+            self.log_counter += 1
+            if self.log_counter % self.log_frequency == 0:
+                self.get_logger().info(f"Closest detected obstacle (clustered): {closest_obstacle_from_clusters:.2f} m")
+                self.log_counter = 0 # Reset counter for consistent frequency after many updates
         
         # Publish the closest obstacle distance
         closest_dist_msg = Float32()

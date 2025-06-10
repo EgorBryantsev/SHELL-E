@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import rclpy
+
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from rclpy.qos import QoSProfile
@@ -95,14 +97,15 @@ class Turtlebot3ObstacleDetection(Node):
         # Implement Twist publishing to control robot's movement 
         self.cmd_vel_pub.publish(twist)
 
-        # NOTE: The main function for Turtlebot3ObstacleDetection remains the same
-        # The main fucntion moved from the separate main.py file
-        def main(args=None):
-            rclpy.init(args=args)
-            turtlebot3_obstacle_detection = Turtlebot3ObstacleDetection()
-            rclpy.spin(turtlebot3_obstacle_detection)
-            turtlebot3_obstacle_detection.destroy_node()
-            rclpy.shutdown()
+# NOTE: The main function for Turtlebot3ObstacleDetection remains the same
+# The main fucntion moved from the separate main.py file
+# The main function should be separate from the class
+def main(args=None):
+    rclpy.init(args=args)
+    turtlebot3_obstacle_detection = Turtlebot3ObstacleDetection()
+    rclpy.spin(turtlebot3_obstacle_detection)
+    turtlebot3_obstacle_detection.destroy_node()
+    rclpy.shutdown()
         
-        if __name__ == '__main__':
-            main()
+if __name__ == '__main__':
+    main()

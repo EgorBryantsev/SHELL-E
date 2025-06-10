@@ -3,17 +3,10 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import GroupAction
-from launch_ros.descriptions import ParameterGroup
 
 def generate_launch_description():
     # Ensure the name matches the one in setup.py
     package_name = 'turtlebot3_lidar_listener'
-
-    # Define common parameters for the nodes (e.g., safety distance)
-    # You can also set these inside each Node if they differ per robot
-    common_params = ParameterGroup([
-        {'safety_distance': 0.3}, # The safety distance used in Turtlebot3ObstacleDetection
-    ])
 
     # Initializes the main LaunchDescription object, to which 
     # all actions (like starting nodes) will be added.
@@ -45,7 +38,9 @@ def generate_launch_description():
                     ('/cmd_vel_raw', '/real_robot/cmd_vel_raw'), # If used for manual control override
                     ('/closest_obstacle_distance', '/real_robot/closest_obstacle_distance') # From real_lidar_listener
                 ],
-                parameters=[common_params] # Apply common parameters
+                parameters=[
+                    {'safety_distance': 0.3},
+                ] # Apply common parameters
             ),
         ]
     )
@@ -78,7 +73,9 @@ def generate_launch_description():
                     ('/cmd_vel_raw', '/virtual_robot/cmd_vel_raw'),
                     ('/closest_obstacle_distance', '/virtual_robot/closest_obstacle_distance')
                 ],
-                parameters=[common_params]
+                parameters=[
+                    {'safety_distance': 0.3},
+                ]
             ),
         ]
     )
