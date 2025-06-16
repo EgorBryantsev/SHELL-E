@@ -118,6 +118,13 @@ Note: Make sure your TurtleBot3 is turned on and publishing /scan topic over the
 You should see an output like:
 [INFO] [1747646910.205770301] [lidar_listener]: Min distance: 0.27 meters
 
+11) In a new terminal:
+- cd ~/ros2_ws2
+- source /opt/ros/foxy/setup.bash
+- source install/setup.bash
+- export TURTLEBOT3_MODEL=burger
+- ros2 run turtlebot3_lidar_listener turtlebot3_obstacle_detection
+
 /*************************************/
 
 Troubleshooting:
