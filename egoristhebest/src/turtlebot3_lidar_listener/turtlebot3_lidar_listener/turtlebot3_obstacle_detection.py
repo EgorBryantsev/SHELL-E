@@ -83,7 +83,7 @@ class Turtlebot3ObstacleDetection(Node):
     def detect_obstacle(self):
         twist = Twist()
         # obstacle_distance = min(self.scan_ranges) # OLD: Replaced by new variable
-        safety_distance = 0.05  # unit: m
+        safety_distance = 0.3  # unit: m
 
         # CHANGE: Use the distance from our sophisticated obstacle detector
         if self.detected_obstacle_distance > safety_distance:
