@@ -47,7 +47,7 @@ public class ShapeDetector : MonoBehaviour
                 return;
             }
         }
-        // If none matched, do nothing
+
     }
 
     private bool IsWallSize(Vector3 size)
@@ -92,7 +92,7 @@ public class ShapeDetector : MonoBehaviour
         // Register in manager
         if (DetectionManager.Instance != null)
             DetectionManager.Instance.RegisterBox(obj);
-        // Your other reactions...
+
     }
 
     private void HandleTrash(GameObject obj, Vector3 size)
@@ -100,7 +100,7 @@ public class ShapeDetector : MonoBehaviour
         Debug.Log($"Detected TRASH: {obj.name}");
         if (DetectionManager.Instance != null)
             DetectionManager.Instance.RegisterTrash(obj);
-        // Your other reactions...
+
     }
 }
 

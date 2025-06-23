@@ -8,7 +8,6 @@ public class TrashCounter : MonoBehaviour
 
     void Update()
     {
-        // Example: press 'C' to compute and log counts
         if (Input.GetKeyDown(KeyCode.C))
         {
             if (DetectionManager.Instance == null)
